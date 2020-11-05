@@ -1,10 +1,12 @@
 # Kwenyu
-
-#  Author: Abdihakim Muhumed.
 This is a web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
 
+#  Author: Abdihakim Muhumed.
+[View Demo](https://github.com/Abdihakim-Muhumed/)
+
+
 # Live Demo
-Click this link to view :https://kwenyu.herokuapp.com/accounts/register/
+[View Demo](https://kwenyu.herokuapp.com/accounts/profile/)
 # Setup Instructions:
 
 ## Installation requirements:
