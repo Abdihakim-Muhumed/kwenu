@@ -59,4 +59,18 @@ def new_business(request):
 @login_required(login_url='/accounts/login/')
 def view_business(request,business_id):
     business = Business.objects.filter(id=business_id).first()
-    return render(request,'business.html',{"business":business})
+    title = f"Business-{business.name}"
+    return render(request,'business.html',{"business":business,"title":title})
+
+def search_results(request):
+    title='Search'
+    if 'search' in request.GET and request.GET["search"]:
+        search_term = request.GET.get("search")
+        searched_businesss = Business.objects.filter(name__icontains=search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"title":title,"businesss": searched_businesss})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message,"title":title})

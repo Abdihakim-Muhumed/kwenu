@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block content%}
+<style>
+</style>
+<h1 class="text-center"></h1>
+<div class="container">
+    <div class="row">
+        <div class="card col-md-10 col-sm-8 col-lg-10 col-xs-8 m-2 p-2 shadow-sm">
+            <div class="card-header">
+                <h2>{{business.name}}</h2>
+            </div>
+            <img src="{{business.business_pic.url}}" class="card-img-top" alt="{{business.title}}" height='350' width='100%' >
+    
+            <div class="card-body">
+                <h5 class="card-text float-left">Owned by:{{business.user.username}} 
+                    
+                </h5>
+                 <h5 class="text-secondary float-right" >
+                     location: {{business.neighbourhood.name}}
+                 </h5> 
+                
+            </div>
+            <p class="text-secondary ml-3" style="color: black;">{{business.description}}</p>
+
+        </div>
+    </div>
+</div>
+
+{%endblock content%}

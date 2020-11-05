@@ -7,4 +7,5 @@ urlpatterns = [
     path('edit/',views.edit_profile,name='edit-profile'),
     path('new/business/',views.new_business,name='new-business'),
     path('business/view/<business_id>',views.view_business,name='view-business'),
+    path('business/search/',views.search_results,name='search'),
 ]
