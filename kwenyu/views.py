@@ -19,7 +19,8 @@ def profile(request):
         return redirect('edit-profile')
     business = Business.objects.filter(user = current_user).all()
     total_business = business.count()
-    return render(request,'profile.html',{"profile":profile,"business":business,"current_user":current_user,"total_business":total_business,})
+    title = "Profile"
+    return render(request,'profile.html',{"profile":profile,"title":title,"business":business,"current_user":current_user,"total_business":total_business,})
 
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):
@@ -34,4 +35,21 @@ def edit_profile(request):
 
     else:
         form = EditProfileForm()
-    return render(request, 'edit_profile.html', {"form": form})
+    title = "Edit-profile"
+    return render(request, 'edit_profile.html', {"form": form,"title":title})
+
+@login_required(login_url='/accounts/login/')
+def new_business(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewBusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            business.user = current_user
+            business.save()
+        return redirect('profile')
+
+    else:
+        form = NewBusinessForm()
+        title = 'New business'
+    return render(request, 'new_business.html', {"form": form,"title":title})
