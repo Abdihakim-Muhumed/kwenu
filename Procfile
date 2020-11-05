@@ -1,0 +1,1 @@
+web: gunicorn kwenu.wsgi --log-file -
