@@ -4,7 +4,7 @@
 This is a web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
 
 # Live Demo
-Click this link to view :https://kwenyu.herokuapp.com/ |
+Click this link to view :https://kwenyu.herokuapp.com/accounts/register/
 # Setup Instructions:
 
 ## Installation requirements:

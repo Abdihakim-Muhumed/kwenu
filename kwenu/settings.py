@@ -56,6 +56,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY='99!u@1+-w$2@f0ric7ejrf1do&fb^mru#3$i=w@g_z2bfjt1=j'
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
