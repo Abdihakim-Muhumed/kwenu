@@ -9,7 +9,6 @@ class Neighbourhood (models.Model):
     location = models.CharField(max_length=60)
     picture = CloudinaryField('image')
     admin = models.ForeignKey(User, on_delete=models.CASCADE,related_name='admin')    
-
     def __str__(self):
         return self.name
 

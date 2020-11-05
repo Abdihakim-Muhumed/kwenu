@@ -8,7 +8,29 @@ from .forms import EditProfileForm,NewBusinessForm
 # Create your views here
 
 def index(request):
-    return render(request,'index.html')
+    hoods = Neighbourhood.objects.all()
+    return render(request,'index.html',{"hoods":hoods})
+
+@login_required(login_url='/accounts/login/')
+def join_hood(request,hood_id):
+    hood=Neighbourhood.objects.filter(id=hood_id).first()
+    profile=Profile.objects.filter(user=request.user).first()
+    profile.neighbourhood = hood
+    profile.save()
+    return redirect('index')
+
+@login_required(login_url='/accounts/login/')
+def leave_hood(request, id):
+    profile=Profile.objects.filter(user=request.user).first()
+    profile.neighbourhood = None
+    profile.save()
+    return redirect('index')
+    
+@login_required(login_url='/accounts/login/')
+def home(request,):
+    profile = Profile.objects.filter(user=request.user).first()
+    home = profile.neighbourhood
+    return render(request, 'home.html', {'home':home})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):

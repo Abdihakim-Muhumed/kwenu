@@ -11,9 +11,11 @@
             {% endif%}
         </div>
         <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
-            <p>{{current_user.username}}</p>
+            <p>Name: {{current_user.username}}</p>
+            <p>Neighbourhood: {{profile.neighbourhood.name}}</p>
+            {% if total_business%}
             <div class="row">
-                <div class="col-md-4"><p>{{total_business}} business </p></div>
+                <div class="col-md-4"><p>My businesses: {{total_business}} </p></div>
             </div>
             {%if profile.status%}
             <p>Status: {{profile.status}}</p>
