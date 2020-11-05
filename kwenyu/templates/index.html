@@ -5,7 +5,7 @@
 <div class="container-fluid" >
 {% if hoods %}
     <div class="d-flex flex-wrap justify-content-center">
-        <h1 class="text-center">Neigbouroods</h1>
+        <h1 class="text-center">Neigbourhoods</h1>
         {% for hood in hoods %}
     <div class="card col-lg-4 col-md-4 col-sm-6 m-3 p-2" >
      <img src="{{ hood.picture.url}}" class="card-img-top " id="home-img"alt="{{hood.name}}" style=" width:100%; height:300px; object-fit:cover;
@@ -16,9 +16,9 @@
    <h4 class="text-center"> <b>{{hood.name|title}} </b></h4><br>
    <p class="float-left"> <i class="fas fa-map-marker-alt"></i>{{hood.location}}</p>
    {% if request.user.profile.neighbourhood == hood %}
-    <p class="float-right"><a href="" class="badge badge-danger">Leave Neighbourhood</a></p>
+    <p class="float-right"><a href="{%url 'leave-hood'%}" class="badge badge-danger">Leave Neighbourhood</a></p>
     {% else %}
-    <p class="float-right"><a href="" class="badge badge-info">Join Neighbourhood</a></p>
+    <p class="float-right"><a href="{%url 'join-hood'%}" class="badge badge-info">Join Neighbourhood</a></p>
     {% endif %}
       
   </div>

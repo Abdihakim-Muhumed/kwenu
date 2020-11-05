@@ -25,12 +25,19 @@ def leave_hood(request, id):
     profile.neighbourhood = None
     profile.save()
     return redirect('index')
-    
+
 @login_required(login_url='/accounts/login/')
 def home(request,):
     profile = Profile.objects.filter(user=request.user).first()
     home = profile.neighbourhood
     return render(request, 'home.html', {'home':home})
+
+@login_required(login_url='/accounts/login/')
+def business(request, home_id):
+    home = Neighbourhood.objects.get(id=home_id)
+    searched_business = Business.objects.filter(neighbourhood=home)
+    message = f"{home.name}"
+    return render(request, 'search.html',{"message":message,"title":title,"businesss":searched_business})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):

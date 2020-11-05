@@ -10,5 +10,6 @@ urlpatterns = [
     path('business/search/',views.search_results,name='search'),
     path('join/hood/<hood_id>', views.join_hood, name='join-hood'),
     path('leave/hood/<hood_id>', views.leave_hood, name='leave-hood'),
-    path('home/<home_id>', views.home, name='home'),
+    path('home/', views.home, name='home'),
+    path('business/<home_id>', views.business, name='business'),
 ]
