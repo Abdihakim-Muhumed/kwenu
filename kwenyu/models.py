@@ -22,13 +22,14 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=80, blank=True)
     location = models.CharField(max_length=50, blank=True, null=True)
-    profile_picture = CloudinaryField('image')
+    profile_photo = CloudinaryField('image')
     neighbourhood = models.ForeignKey('Neighbourhood', on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return self.name
 
 class Business(models.Model):
+    business_pic = CloudinaryField('image')
     name = models.CharField(max_length=120)
     email = models.EmailField(max_length=254)
     description = models.TextField(blank=True)
