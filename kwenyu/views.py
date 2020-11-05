@@ -37,6 +37,7 @@ def business(request, home_id):
     home = Neighbourhood.objects.get(id=home_id)
     searched_business = Business.objects.filter(neighbourhood=home)
     message = f"{home.name}"
+    title="Home businesses"
     return render(request, 'search.html',{"message":message,"title":title,"businesss":searched_business})
 
 @login_required(login_url='/accounts/login/')

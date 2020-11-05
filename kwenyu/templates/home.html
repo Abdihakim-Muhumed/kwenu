@@ -3,8 +3,8 @@
 {%if home%}
         <div class="container mt-2">
         <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-7 mt-4">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 mt-4">
         <div class="card mt-auto mb-auto" >
     <h5 class="text-center card-title mt-2"><strong>{{home.name|title}} home</strong></h5>
     {%if home.picture%}
@@ -12,22 +12,20 @@
          {% endif%}
             <div class="card-body">
               <p class="float-left"><b>Admin  :</b> {{home.admin.name}}</p>
-            <hr>                  
-              <p class=""><b> Location  :</b> {{home.location}}</p>
-              <hr>
+              <p class="float-right"><b> Location  :</b> {{home.location}}</p><br>
               <p class="text-center"><b> Emergency Service contacts</b></p>
-              <p class="float-left ml-5 text-success"><b> Police  :</b> {{home.police_contact}}</p>
-              <p class="float-right mr-5 text-primary"><b> Health  :</b> {{home.health_contact}}</p>
-             <br>
               <hr>
+              <p class="float-left ml-5"><b> Police  :</b> {{home.police_contact}}</p>
+              <p class="float-right mr-5"><b> Health  :</b> {{home.health_contact}}</p>
+             <br>
                           
-              <p class="float-left"><a href="{% url 'business' home.id%}" class="badge badge-info">View Business</a></p>
+              <p class="float-right"><a href="{% url 'business' home.id%}" class="badge badge-info">View Business</a></p>
             </div>
           </div>
        
            
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-1"></div>
     </div>
 
 </div>
