@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container">
+    {% if businesss%}
+      <h2>Found {{ businesss|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 business for the search term {{message}}</h2>
+    {% endif %}
+    {%if businesss%}
+    {% for business in businesss%}
+    <div class="row">
+        <div class="col-md-1 col-sm-1 col-lg-1 col-xs-1"></div>
+        <div class="">
+            <div class="card col-md-10 col-sm-11 col-lg-10 col-xs-11 m-2 p-2 shadow-sm">
+                <img src="{{business.business_pic.url}}" class="card-img-top" alt="{{business.title}}" height='350' width='100%' >
+        
+                <div class="card-body">
+                    <h5 class="card-text float-left">{{business.name}}</h5>
+                    <a class="text-secondary float-right" href="{%url 'view-business' business.id %}">
+                        <button class="btn btn-success">View business</button>
+                    </a>                   
+                </div>
+                <p class="text-secondary ml-3" ></p>
+    
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+</div>
+{%endblock content%}
+
