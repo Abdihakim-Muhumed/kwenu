@@ -1,0 +1,36 @@
+{%extends "django_registration/base.html"%}
+{% load bootstrap4 %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-6 mt-6">
+                <div class="card">                   
+                    <div class="card-body mb-3 mr-3 ml-3">
+                        <h2 class="text-center text-secondary">Sign up </h2>
+                        {% if form.errors %}
+                            <p> Password or Username is incorrect !!!</p>
+                        {% endif %}
+                        <form action="" method="post" novalidate>
+                            {% csrf_token%}
+                            {{ form|crispy }}
+
+                            <button type="submit" class="btn btn-primary btn-block "> Log In</button>
+                        </form>
+                        <p style="color: rgb(31, 50, 107);">Don't have an account? <a href="/accounts/register/">Register</a></p>
+                    </div>
+                  
+                </div>
+                <div class="card mt-2">
+                    <div class="card-body mt-3 mb-3 mr-2 ml-4" 
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>    
+
+{% endblock %}
