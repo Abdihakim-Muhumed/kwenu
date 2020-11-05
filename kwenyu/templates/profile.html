@@ -12,10 +12,10 @@
         </div>
         <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
             <p>Name: {{current_user.username}}</p>
-            <p>Neighbourhood: {{profile.neighbourhood.name}}</p>
+            <p><i class="fas fa-map-marker-alt"></i> : {{profile.neighbourhood.name}}</p>
             {% if total_business%}
             <div class="row">
-                <div class="col-md-4"><p>My businesses: {{total_business}} </p></div>
+                <div class="col-md-4"><p>Businesses: {{total_business}} </p></div>
             </div>
             {% endif%}
             {%if profile.status%}

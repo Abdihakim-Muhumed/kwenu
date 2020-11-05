@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls import include, url
 from django.contrib.auth import views
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls,name='admin'),
     path('accounts/profile/',include('kwenyu.urls')),
     #registration urls
     path('accounts/', include('django_registration.backends.one_step.urls')),

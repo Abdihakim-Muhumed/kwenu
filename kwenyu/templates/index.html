@@ -2,33 +2,27 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load bootstrap4 %}
-<div class="container-fluid" >
-{% if hoods %}
-    <div class="d-flex flex-wrap justify-content-center">
+<div class="container">
+    {% if hoods %}
         <h1 class="text-center">Neigbourhoods</h1>
-        {% for hood in hoods %}
         <div class="row">
-            <div class="card col-lg-6 col-md-6 col-sm-8 m-3 p-2" >
-                <img class="rounded-circle  d-block mx-auto" height='250px' width='250px' src="{{ hood.picture.url}}" id="home-img"alt="{{hood.name}}" style=" width:100%; height:300px; object-fit:cover;
-           object-position:50% 50%;">
-           
-          <div class="card-body">
-          
-           <h4 class="text-center"> <b>{{hood.name|title}} </b></h4><br>
-           <p class="float-left"> <i class="fas fa-map-marker-alt"></i>{{hood.location}}</p>
-           {% if request.user.profile.neighbourhood == hood %}
-            <p class="float-right"><a href="{%url 'leave-hood' hood.id%}" class="badge badge-danger">Leave Neighbourhood</a></p>
-            {% else %}
-            <p class="float-right"><a href="{%url 'join-hood' hood.id %}" class="badge badge-info">Join Neighbourhood</a></p>
-            {% endif %}
-              
-          </div>
-          
-          
+            {% for hood in hoods %}
+            <div class="col-md-4" >
+                <div class="card">
+                    <img class="rounded-circle  d-block mx-auto" height='250px' width='250px' src="{{ hood.picture.url}}" id="home-img"alt="{{hood.name}}" style=" width:100%; height:300px; object-fit:cover; object-position:50% 50%;">
+                    <div class="card-body">
+                        <h4 class="text-center"> <b>{{hood.name|title}} </b></h4><br>
+                        <p class="float-left"> <i class="fas fa-map-marker-alt"></i> : {{hood.location}}</p>
+                        {% if request.user.profile.neighbourhood == hood %}
+                        <p class="float-right"><a href="{%url 'leave-hood' hood.id%}" class="badge badge-danger">Leave Neighbourhood</a></p>
+                        {% else %}
+                        <p class="float-right"><a href="{%url 'join-hood' hood.id %}" class="badge badge-info">Join Neighbourhood</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        </div>
-        {% endfor %}
-    </div> 
     {% endif %}
 </div>
 {% endblock content %}
