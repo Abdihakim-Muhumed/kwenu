@@ -131,6 +131,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#configure djangu app
+django_on_heroku.settings(locals())
+
 #cloudinary configurations
 cloudinary.config( 
   cloud_name = config('CLOUD_NAME'), 
