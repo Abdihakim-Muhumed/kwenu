@@ -9,7 +9,24 @@ class Profile(models.Model):
     name = models.CharField(max_length=80, blank=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     profile_picture = CloudinaryField('image')
-    neighbourhood = models.ForeignKey('Neighbourhood', on_delete=models.SET_NULL, null=True, related_name='occupant', blank=True)
+    neighbourhood = models.ForeignKey('Neighbourhood', on_delete=models.SET_NULL, blank=True)
 
     def __str__(self):
         return self.name
+
+class Neighbourhood (models.Model):
+    name = models.CharField(max_length=50)
+    location = models.CharField(max_length=60)
+    picture = CloudinaryField('image')
+    admin = models.ForeignKey(Profile, on_delete=models.CASCADE)    
+    health = models.IntegerField(null=True, blank=True)
+    police = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def save_neighborhood(self):
+        self.save()
+
+    def delete_neighborhood(self):
+        self.delete()
