@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Business,Profile
+from .models import Business,Profile,Neighbourhood
 from django.contrib.auth.models import User
 from django.http import HttpResponse,Http404,HttpResponseRedirect,JsonResponse
 from .forms import EditProfileForm,NewBusinessForm
@@ -46,6 +46,8 @@ def new_business(request):
         if form.is_valid():
             business = form.save(commit=False)
             business.user = current_user
+            profile = Profile.objects.filter(user = current_user).first()
+            business.neighbourhood= profile.neighbourhood
             business.save()
         return redirect('profile')
 
@@ -53,3 +55,8 @@ def new_business(request):
         form = NewBusinessForm()
         title = 'New business'
     return render(request, 'new_business.html', {"form": form,"title":title})
+
+@login_required(login_url='/accounts/login/')
+def view_business(request,business_id):
+    business = Business.objects.filter(id=business_id).first()
+    return render(request,'business.html',{"business":business})
