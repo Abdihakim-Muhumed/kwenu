@@ -39,9 +39,10 @@ This is a web application that allows you to be in the loop about everything hap
       $ python manage.py makemigrations 
       $ python manage.py migrate 
     
-- To run the application, in your terminal
+- To run the application, in your terminal:
 
       $ python manage.py runserver
+
 # Technologies
  1.Python(django)
  2.HTML
