@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #457b9d;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'index' %}">Kwenyu</a>
+    </div>
+    
+    <!-- Adding a search form  -->
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7 ">
+        <form class="navbar-form" role="search" action="#">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search a business in your neighberhood" name="search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+
+        </form>
+        
+    </div>
+    <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse navbar-right col-md-4 col-sm-4 col-xs-4 col-lg-4" id="navbarNavDropdown" style="float: right;">
+        <ul class="nav navbar-nav ml-auto mr-3 ">
+            {% if user.is_authenticated%}
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'index'%}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'profile'%}">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Kwetu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'logout'%}">Logout</a>
+            </li>
+            {%else%}
+            <li class="nav-item">
+                <a class="nav-link" href="/accounts/login/">Login</a>
+            </li>
+            {%endif %}
+        </ul>   
+    </div>
+  </div>
+</nav>
+</body>
+</html>
+
