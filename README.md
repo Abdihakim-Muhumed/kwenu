@@ -16,8 +16,8 @@ This is a web application that allows you to be in the loop about everything hap
 - Cloudinary
 
 ### Clone the application 
-    $ git clone https://github.com/p-koskey/mtaani.git
-    $ cd mtaani
+    $ git clone https://github.com/Abdihakim-Muhumed/kwenu.git
+    $ cd kwenu
 
 ### Run the application
 - Install virtual environment using 
@@ -36,7 +36,7 @@ This is a web application that allows you to be in the loop about everything hap
 
 - Make migrations
 
-      $ python manage.py makemigrations app=hood
+      $ python manage.py makemigrations 
       $ python manage.py migrate 
     
 - To run the application, in your terminal
