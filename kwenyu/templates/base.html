@@ -10,8 +10,10 @@
   {%if title%}
 
   <title>{{title}}</title>
-
+    {% else%}
+    <title>Kwenyu</title>
   {%endif%}
+
 
   {% block styles %}
     {% bootstrap_css %}
